@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+	<title>EyeLeo</title>
+	
+	<link rel="stylesheet" href="eye.css">
+		
+	<script type="text/tiscript">
+		include "eye.tis";
+	</script>
+	
+	<div id="patterns">
+		<span name="blink">Blink your eyes.</span>
+		<span name="tightly">Close your eyes tightly.</span>
+		<span name="up-down">Move eyes up and down.</span>
+		<span name="left-right">Move eyes left and right.</span>
+		<span name="up-right-down-left">Roll your eyes.</span>
+		<span name="window">Look at distant objects in the window.</span>
+	</div>
+</head>
+<body>
+	<div frame class="window" id="frame">
+		<div class="hsplit">
+			<div class="left">
+				<picture id="title" src="img/eyeleo_title.png"/>
+				<div id="leo"><img/></div>
+			</div>
+			<div class="right">
+				<div id="break-title">Take a break!</div>
+				<div id="break-text">Move eyes up and down</div>
+			</div>
+			<div id="counter">10</div>
+		</div>
+	</div>
+
+	<div class="controls">
+		<fieldset class="radio">
+			<button type="radio" name="kind" val="blink" checked>Blink</button>
+			<button type="radio" name="kind" val="tightly">Tightly</button>
+			<button type="radio" name="kind" val="up-down">Up-Down</button>
+			<button type="radio" name="kind" val="left-right">Left-Right</button>
+			<button type="radio" name="kind" val="up-right-down-left">Roll</button>
+			<button type="radio" name="kind" val="window">Window</button>
+		</fieldset>
+		
+		<fieldset class="buttons">
+			<button id="start">start</button>
+			<button id="stop">stop</button>
+		</fieldset>
+
+	</div>
+</body>
+</html>

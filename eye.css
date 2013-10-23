@@ -1,0 +1,78 @@
+.window {
+	background: url(img/skin2.png) stretch;
+	height: 156px;
+	width: 461px;
+	padding: 10px;
+	padding-bottom: 0;
+}
+
+.hsplit {
+	flow: horizontal;
+	width: *;
+	height: *;
+}
+
+#title {
+	margin-left: 18px;
+	margin-top: 5px;
+}
+
+#leo > img {
+	//background: url(personages/leopard/default.png) no-repeat;
+	width: 156px;
+	height: 98px;
+}
+
+.left {
+	height: *;
+}
+.right {
+	font-size: larger;
+	color: white;
+	width: 100%%;
+	height: *;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+#counter {
+	color: orange;
+	font-size: larger;
+	text-align: right;
+	vertical-align: bottom;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 20px;
+	visibility: hidden;
+}
+
+.controls {
+	background-color: threedface;
+	margin-top: 30px;
+	padding: 10px;
+	border-radius: 10px;
+	width: max-intrinsic;
+}
+
+.controls fieldset {
+	padding: 5px;
+	border-radius: 5px;
+}
+.controls fieldset.radio {
+	box-shadow: 0 0 5px #666;
+}
+
+.controls fieldset.buttons {
+	text-align: right;
+	margin-top: 5px;
+}
+
+/* runtime states */
+#frame[run] #counter {
+	visibility: visible;
+}
+
+[frame] {
+	outline: 1px solid orange;
+}

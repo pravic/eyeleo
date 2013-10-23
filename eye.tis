@@ -1,0 +1,79 @@
+
+const counter = $(#counter)
+		,	frame = $(#frame)
+		, img = $(#leo > img)
+		;
+
+function countTimer() {
+	var c = this.attributes["count"].toInteger(1) - 1;
+	var states = frame.attributes["run"].split(" ");
+	assert(states instanceof Array);
+	setImg(states[ c % states.length ]);
+	this.attributes["count"] = c;
+	return c > 0;
+}
+
+function controlTimer(state, delay = 1000) {
+	frame.attributes["run"] = state;
+	
+	var dec = function() {
+		var c = 			this.attributes["count"].toInteger(1) - 1;
+		this.value =	this.attributes["count"] = c;
+		if(c <= 0)
+			controlTimer(null);
+		return c > 0;
+	};
+	var img = $(#leo);
+	
+	if(state) {
+		var init = function(e, count, func) {
+			e.attributes["count"] = count;
+			e.post(func);
+			e.timer(10000 / count, func);
+		};
+		init(counter, 10, dec);
+		if(state == "window") {
+			return $(#leo > img).attributes["src"] = self.url("img/window.png");
+		}
+		init(img, 10000 / delay, countTimer);
+	} else {
+		counter.timer(0, dec);
+		img.timer(0, countTimer);
+		setImg();
+	}
+}
+
+$(#start).onClick = :{
+	var el = $(fieldset.radio button:checked);
+	var val = el.attributes["val"];
+	$(#break-text).value = $(head #patterns span[name="{val}"]).value;
+	stdout.println("state: " + val);
+	
+	if(val == "window") {
+		return controlTimer("window");
+	}
+	
+	var states = val.split("-");
+	if(rand(3) == 1)
+		states.reverse();
+	if(states.length == 1)
+		states.push("default");
+	
+	stdout.println("states: " + states.join(" "));
+	controlTimer(states.join(" "), val == "blink" ? 300 : 1000 );
+}
+
+$(#stop).onClick = :{
+	controlTimer(null);
+}
+
+var animal = "personages/leopard/";
+
+function setImg(name = "default") {
+	var f = self.url(animal + name + ".png");
+	//stdout.println("img: " + f);
+	img.attributes["src"] = f;
+	//img.attributes["name"] = name;
+}
+
+setImg("default");
