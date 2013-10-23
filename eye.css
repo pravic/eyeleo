@@ -4,6 +4,7 @@
 	width: 461px;
 	padding: 10px;
 	padding-bottom: 0;
+	margin-left: 7px;
 }
 
 .hsplit {
@@ -50,7 +51,7 @@
 
 .controls {
 	background-color: threedface;
-	margin-top: 30px;
+	margin: 5px;
 	padding: 10px;
 	border-radius: 10px;
 	width: max-intrinsic;
