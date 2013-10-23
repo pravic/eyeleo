@@ -33,6 +33,7 @@ function controlTimer(state, delay = 1000) {
 		};
 		init(counter, 10, dec);
 		if(state == "window") {
+			img.timer(0, countTimer);
 			return $(#leo > img).attributes["src"] = self.url("img/window.png");
 		}
 		init(img, 10000 / delay, countTimer);
